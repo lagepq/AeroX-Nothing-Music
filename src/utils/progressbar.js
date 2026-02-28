@@ -2,7 +2,7 @@ module.exports = {
     progressbar: function (player) {
     let size = 15;
     let line = "░";
-    let slider = `[█](https://github.com/Ankush26030)`;
+    let slider = `█`;
     
     if (!player.queue.current) return `[ ${slider}${line.repeat(size - 1)} ]`;
     let current = player.queue.current.length !== 0 ? player.shoukaku.position : player.queue.current.length;

@@ -52,7 +52,7 @@ module.exports = {
       if (!client.manager) {
         const embed = new EmbedBuilder()
           .setColor(client.ankushcolor || '#FF0000')
-          .setDescription("Music manager is not properly initialized. Please contact the bot developer.");
+          .setDescription("Music manager is not properly initialized. Please contact the support team.");
         return message.reply({ embeds: [embed] });
       }
       
