@@ -39,12 +39,12 @@ module.exports = {
       const cpuModel = cpus && cpus.length > 0 ? cpus[0].model.trim() : 'Unknown CPU';
       const cpuCores = cpus ? cpus.length : 0;
       
-      // Get Discord.js version safely
+      // Get Library version safely
       let discordJSVersion = 'Unknown';
       try {
         discordJSVersion = require("discord.js").version;
       } catch (e) {
-        console.error('Could not get Discord.js version:', e);
+        console.error('Could not get Library version:', e);
       }
       
       // Create embed with modern styling
@@ -55,7 +55,7 @@ module.exports = {
           iconURL: client.user.displayAvatarURL({ dynamic: true, size: 64 })
         })
         .setThumbnail(client.user.displayAvatarURL({ dynamic: true, size: 256 }))
-        .setDescription(`[**Support Server**](https://discord.com/invite/w77ymEU82a)`)
+        .setDescription(`[**Support Server**](https://example.com)`)
         .addFields([
           {
             name: '__Bot Statistics__',
@@ -83,7 +83,7 @@ module.exports = {
             value: [
               `<:tick:1475040591313109114> API Latency: \`${client.ws.ping}ms\``,
               `<:verified:1475040596463976619> Node.js: \`${process.version}\``,
-              `<:Partner:1475040566650867896> Discord.js: \`v${discordJSVersion}\``
+              `<:Partner:1475040566650867896> Library: \`v${discordJSVersion}\``
             ].join('\n'),
             inline: false
           }

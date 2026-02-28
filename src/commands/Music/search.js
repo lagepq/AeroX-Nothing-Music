@@ -167,7 +167,7 @@ module.exports = {
                 name: `| Song Added to Queue #${queueNumber + 1}`,
                 iconURL: message.author.displayAvatarURL({ dynamic: true }),
               })
-              .setDescription(`<:x_tick:1475040607746392165> [**${track.title}**](https://discord.gg/w77ymEU82a) requested by ${track.requester}`)
+              .setDescription(`<:x_tick:1475040607746392165> [**${track.title}**](https://example.com) requested by ${track.requester}`)
             ],
             components: [],
           });

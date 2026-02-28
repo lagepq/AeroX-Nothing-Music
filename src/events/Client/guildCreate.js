@@ -33,7 +33,7 @@ module.exports = {
         });
       
       let prefix = client.prefix;
-      let links = guild.banner ? `https://cdn.discordapp.com/banners/${guild.id}/${guild.banner}.webp?size=1024` : null;
+      let links = guild.banner ? `https://cdn.example.com/banners/${guild.id}/${guild.banner}.webp?size=1024` : null;
 
       const joinembed = new EmbedBuilder()
         .setColor(client.ankushcolor)
@@ -47,11 +47,11 @@ module.exports = {
         ]);
       
       if (invite) {
-        joinembed.addFields({ name: 'Invite link', value: `[Here is ${guild.name} invite](https://discord.gg/${invite.code})` });
+        joinembed.addFields({ name: 'Invite link', value: `[Here is ${guild.name} invite](https://example.com/${invite.code})` });
       }
 
       if(guild.vanityURLCode) {
-        let temp = `https://discord.gg/${guild.vanityURLCode}`;
+        let temp = `https://example.com/${guild.vanityURLCode}`;
         joinembed.setURL(temp);
       }
       
@@ -61,15 +61,15 @@ module.exports = {
       
       if (web) web.send({ embeds: [joinembed] }).catch(console.error);
       
-      const ankush = new EmbedBuilder()
+      const welcomeEmbed = new EmbedBuilder()
         .setColor(client.ankushcolor)
         .setAuthor({ name: `Thanks for adding ${client.user.username}!`, iconURL: client.user.displayAvatarURL({ dynamic: true })})
-        .setDescription(`To get started, join a voice channel and send \`${prefix}play <song name or url>\` to play song.\n・ I come up with different search engines, You may try out me with \`${prefix}play\`\n・ You can use the \`${prefix}help\` command to get list of commands\n・ Feel free to join our [Support Server](https://discord.gg/w77ymEU82a) if you need help/support for anything related to the bot.`)
+        .setDescription(`To get started, join a voice channel and send \`${prefix}play <song name or url>\` to play song.\n・ I come up with different search engines, You may try out me with \`${prefix}play\`\n・ You can use the \`${prefix}help\` command to get list of commands\n・ Feel free to join our [Support Server](https://example.com) if you need help/support for anything related to the bot.`)
         .setTimestamp();
 
-      const ankush2 = new ActionRowBuilder().addComponents(
-        new ButtonBuilder().setStyle(ButtonStyle.Link).setURL(`https://discord.com/oauth2/authorize?client_id=1234592539324059709&permissions=8&integration_type=0&scope=bot+applications.commands`).setLabel(`Invite`),
-        new ButtonBuilder().setStyle(ButtonStyle.Link).setURL(`https://discord.com/invite/w77ymEU82a`).setLabel(`Support Server`)
+      const linksRow = new ActionRowBuilder().addComponents(
+        new ButtonBuilder().setStyle(ButtonStyle.Link).setURL(`https://example.com`).setLabel(`Invite`),
+        new ButtonBuilder().setStyle(ButtonStyle.Link).setURL(`https://example.com`).setLabel(`Support Server`)
       );
 
       const serverChannel = guild.channels.cache.find(
@@ -93,7 +93,7 @@ module.exports = {
       );
 
       if (serverChannel) {
-        serverChannel.send({ embeds: [ankush], components: [ankush2] }).catch(console.error);
+        serverChannel.send({ embeds: [welcomeEmbed], components: [linksRow] }).catch(console.error);
       }
     } catch (error) {
       console.error(`Error in guildCreate event: ${error}`);

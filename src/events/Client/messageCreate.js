@@ -148,7 +148,7 @@ if (mentionedUsers.size > 0 && !message.reference) { // Only react if not a repl
 // Owner mention reaction system (kept for backward compatibility)
 if (client.config.ownerID.some(ownerId => message.content.includes(`<@${ownerId}>`)) && !message.reference) { // Only react if not a reply
   try {
-    const ownerMentionReactions = ['<:owner:1475040564461178910>', '<:Dev:1475040497666887770>', '<:Ankush:1475040482622050447>'];
+    const ownerMentionReactions = ['<:owner:1475040564461178910>', '<:Dev:1475040497666887770>'];
     for (const reaction of ownerMentionReactions) {
       await message.react(reaction);
       await new Promise(resolve => setTimeout(resolve, 500)); // 500ms delay between reactions
@@ -183,25 +183,25 @@ if (client.config.ownerID.some(ownerId => message.content.includes(`<@${ownerId}
     const mentionRegex = RegExp(`^<@!?${client.user.id}>$`);
     if (message.content.match(mentionRegex)) {
       // Define the action row for buttons first
-      const ankush = new ActionRowBuilder().addComponents(
+      const linksRow = new ActionRowBuilder().addComponents(
         new ButtonBuilder()
           .setStyle(ButtonStyle.Link)
-          .setURL(`https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=414530792776&scope=bot%20applications.commands`)
+          .setURL(`https://example.com`)
           .setLabel(`Invite`),
         new ButtonBuilder()
           .setStyle(ButtonStyle.Link)
-          .setURL(`https://discord.com/invite/w77ymEU82a`)
+          .setURL(`https://example.com`)
           .setLabel(`Support Server`)
       );
       
       const mentionEmbed = new EmbedBuilder()
         .setColor('#ff0000')
         .setThumbnail(client.user.displayAvatarURL())
-        .setDescription(`Hey, It's [**${client.user.username}**](https://discord.com/invite/w77ymEU82a), A Quality Music Bot With Breathtaking Features For Greater Experience While On Discord.`)
+        .setDescription(`Hey, It's [**${client.user.username}**](https://example.com), A Quality Music Bot With Breathtaking Features For greater listening experience.`)
         .addFields([{
           name: `__**Guild Settings**__`, value: `My Prefix: **${prefix}**\nLanguage: **English**\nServer I'd: **${message.guild.id}**`, inline: false
         }])
-        .setFooter({text: `Developed With ❤️ By The Ankush`, iconURL: message.author.displayAvatarURL({ dynamic: true })});
+        .setFooter({text: `Use the buttons below for quick actions`, iconURL: message.author.displayAvatarURL({ dynamic: true })});
 
       const mentionRlBucket = spamRateLimitManager.acquire(`${message.author.id}`);
       if (mentionRlBucket.limited && !owner) {
@@ -217,7 +217,7 @@ if (client.config.ownerID.some(ownerId => message.content.includes(`<@${ownerId}
         mentionRlBucket.consume();
       } catch (e) {}
 
-      return message.reply({ embeds: [mentionEmbed], components: [ankush] });
+      return message.reply({ embeds: [mentionEmbed], components: [linksRow] });
     }
 
     async function getNoPrefixList(client) {

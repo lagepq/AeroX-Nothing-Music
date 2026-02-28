@@ -3,9 +3,9 @@ const { EmbedBuilder, ButtonBuilder, ActionRowBuilder, ButtonStyle } = require("
 module.exports = {
   name: 'support',
   category: 'General',
-  aliases: ['server', 'help-server', 'discord'],
+  aliases: ['server', 'help-server'],
   cooldown: 5,
-  description: 'Get support server invitation and helpful resources',
+  description: 'Get help resources',
   args: false,
   usage: '',
   userPerms: [],
@@ -14,7 +14,7 @@ module.exports = {
   execute: async (message, args, client, prefix) => {
     try {
       // Configuration
-      const supportServerLink = client.config?.supportServer || 'https://discord.com/invite/w77ymEU82a';
+      const supportServerLink = client.config?.supportServer || 'https://example.com';
       
       // Create the main embed
       const supportEmbed = new EmbedBuilder()
@@ -27,7 +27,7 @@ module.exports = {
         .setDescription(`
           🌟 **Need help? We've got you covered!**
           
-          Join our support server for:
+          Get help with:
           • 24/7 Support from our team
           • Bug reports and feature requests
           • Community events and giveaways
@@ -45,14 +45,14 @@ module.exports = {
       // Create buttons row
       const buttons = new ActionRowBuilder().addComponents(
         new ButtonBuilder()
-          .setLabel('Join Support Server')
+          .setLabel('Help Center')
           .setStyle(ButtonStyle.Link)
           .setURL(supportServerLink),
         
         new ButtonBuilder()
           .setLabel('Invite Bot')
           .setStyle(ButtonStyle.Link)
-          .setURL(`https://discord.com/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot%20applications.commands`)
+          .setURL(`https://example.com`)
       );
 
       // Send the message with embed and components
