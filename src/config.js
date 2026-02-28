@@ -1,4 +1,3 @@
-
 module.exports = {
   token: process.env.DISCORD_TOKEN || '', // bot token
   clientId: process.env.CLIENT_ID || "",
@@ -10,14 +9,13 @@ module.exports = {
   bugReportChannel: "", // ID of the channel where bug reports will be sent
   embedColor: '#ff0000', // Using your existing ankushcolor
   supportServer: "", // Support server link
-  
+
   nodes: [
     {
-      url: `lavalinkv4.serenetia.com:80`,
-      name: `MUSIC`,
-      auth: ``,
-      secure: false
+      url: process.env.LAVALINK_URL || 'lavalinkv4.serenetia.com:80',
+      name: process.env.LAVALINK_NAME || 'MUSIC',
+      auth: process.env.LAVALINK_AUTH || process.env.LAVALINK_PASSWORD || 'youshallnotpass',
+      secure: process.env.LAVALINK_SECURE === 'true'
     }
   ],
 };
-
