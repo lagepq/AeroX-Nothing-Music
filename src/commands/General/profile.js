@@ -107,7 +107,7 @@ module.exports = {
         .setThumbnail(usericon)
         .addFields([
           { name: `**__Bio__**`, value: `${bio}` },
-          { name: `**__Server Badges__**`, value: `${badges ? badges : `<:x_cross:1475040602654642176> Oops! Looks Like You Don't Have Any Type Of Badge To Be Displayed! You Can Get One By Joining Our [Support Server](https://discord.gg/w77ymEU82a)`}`}
+          { name: `**__Server Badges__**`, value: `${badges ? badges : `<:x_cross:1475040602654642176> Oops! Looks Like You Don't Have Any Type Of Badge To Be Displayed! You Can Get One By Joining Our [Support Server](https://example.com)`}`}
         ])
         .setColor(client.ankushcolor)
         .setTimestamp();

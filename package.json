@@ -3,15 +3,15 @@
   "version": "2.0.0",
   "description": "Kazagumo (Shoukaku)",
   "main": "index.js",
-  "repository": "https://github.com/Ankush26030",
-  "author": "Ankush",
+  "repository": "",
+  "author": "",
   "license": "ISC",
   "scripts": {
     "start": "node src/nothing.js",
     "dev": "nodemon src/nothing.js"
   },
-  "bugs": "https://github.com/Ankush26030",
-  "homepage": "https://github.com/Ankush26030",
+  "bugs": "",
+  "homepage": "",
   "dependencies": {
     "@sapphire/ratelimits": "^2.4.9",
     "axios": "^1.4.0",

@@ -6,7 +6,7 @@ const { inspect } = require("util")
 module.exports = {
   name: 'eval',
   category: 'Owner',
-  aliases: ['ankush'],
+  aliases: ['ev'],
   cooldown: 5,
   description: '',
   args: false,

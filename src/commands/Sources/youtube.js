@@ -85,7 +85,7 @@ module.exports = {
              iconURL: message.author.displayAvatarURL({ dynamic: true }),
            })
            .setDescription(
-             `<:x_tick:1475040607746392165> [**${result.playlistName}**](https://discord.gg/w77ymEU82a) requested by ${tracks[0].requester ? tracks[0].requester : `<@${client.user.id}>`}`,
+             `<:x_tick:1475040607746392165> [**${result.playlistName}**](https://example.com) requested by ${tracks[0].requester ? tracks[0].requester : `<@${client.user.id}>`}`,
         ),
         ],
         }
@@ -97,7 +97,7 @@ module.exports = {
              name: `| Song Added to Queue #${queueNumber}`,
              iconURL: message.author.displayAvatarURL({ dynamic: true }),
            })
-           .setDescription(`<:x_tick:1475040607746392165> [**${tracks[0].title}**](https://discord.gg/w77ymEU82a) requested by ${tracks[0].requester ? tracks[0].requester : `<@${client.user.id}>`}`)
+           .setDescription(`<:x_tick:1475040607746392165> [**${tracks[0].title}**](https://example.com) requested by ${tracks[0].requester ? tracks[0].requester : `<@${client.user.id}>`}`)
 ],
             },
           );

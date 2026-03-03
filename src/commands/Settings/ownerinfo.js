@@ -3,31 +3,25 @@ const { EmbedBuilder } = require("discord.js");
 module.exports = {
   name: "ownerinfo",
   category: "Settings",
-  aliases: ["dev", "developer"],
-  description: "Displays information about the bot owner.",
+  aliases: ["about", "botinfo"],
+  description: "Displays information about the bot.",
   args: false,
   usage: "",
   userPerms: [],
   owner: false,
-  execute: async (message, args, client, prefix) => {
+  execute: async (message, args, client) => {
     try {
-      const ownerID = client.config.ownerID; // Ensure this is set in your bot's configuration
-      const owner = await client.users.fetch('239496212699545601'); // Fetch the user by ID
-      if (!owner) {
-        return message.reply("I couldn't find the owner. Please check the owner ID in the configuration.");
-      }
-
       const embed = new EmbedBuilder()
-        .setAuthor({ name: `Owner Information`, iconURL: client.user.displayAvatarURL() })
+        .setAuthor({ name: "Bot Information", iconURL: client.user.displayAvatarURL() })
         .setFooter({ text: `Requested By ${message.author.username}`, iconURL: message.author.displayAvatarURL() })
         .setColor('#ff0000')
         .setTitle("Hey, It's A Quality Music Bot With Breathtaking Feature")
-        .setDescription(`<:flame_owner:1475040508916269129> Here Is My Owner & Developer [${owner.tag}](https://discord.com/users/${ownerID})`);
+        .setDescription("Use `help` to explore commands and features.");
 
       message.reply({ embeds: [embed] });
     } catch (error) {
-      console.error("Error fetching owner information: ", error);
-      message.reply("An error occurred while trying to fetch the owner information.");
+      console.error("Error showing bot information: ", error);
+      message.reply("An error occurred while trying to fetch bot information.");
     }
   },
 };

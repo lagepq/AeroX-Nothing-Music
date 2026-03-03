@@ -43,7 +43,7 @@ module.exports = {
             //.setTitle(`**Grabbed the current playing song!**`)
             .setDescription(`## Grabbed the current playing song!`)
             .addFields([
-          { name: '**Title**', value: `[${song.title}](https://discord.com/invite/w77ymEU82a)`, inline: true },
+          { name: '**Title**', value: `[${song.title}](https://example.com)`, inline: true },
           { name: '**Author**', value: `${song.author}`, inline: true },
           { name: `**Progess**`, value: `${convertTime(current)}/${moment.duration(player.queue.current.length).format("hh:mm:ss")}`, inline: true},
             ])

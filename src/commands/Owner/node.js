@@ -98,11 +98,11 @@ async function getInfoEmbed(infoType, client) {
             const players = node.stats?.players || 4;
             const playingPlayers = node.stats?.playingPlayers || 2;
             
-            return `Nothing ${identifier} is Connected` +
+            return `${identifier} is Connected` +
                 `\nPlayer: ${players}` +
                 `\nPlaying Players: ${playingPlayers}` +
                 `\nUptime: ${new Date(node.stats.uptime).toISOString().slice(11, 19)}` +
-                `\nHosted By: Ankush` +
+                `\nHosted By: Team` +
                 `\n\nMemory` +
                 `\nReservable Memory: ${Math.round(node.stats.memory.reservable / 1024 / 1024)}mb` +
                 `\nUsed Memory: ${Math.round(node.stats.memory.used / 1024 / 1024)}mb` +

@@ -116,7 +116,7 @@ module.exports = {
             new EmbedBuilder()
               .setColor(client.ankushcolor)
               .setAuthor({ name: client.user.username, iconURL: client.user.displayAvatarURL() })
-              .setDescription(`<:x_tick:1475040607746392165> Added [**${count}**](https://discord.gg/w77ymEU82a) track(s) from your playlist **${Name}** to the queue.`)
+              .setDescription(`<:x_tick:1475040607746392165> Added [**${count}**](https://example.com) track(s) from your playlist **${Name}** to the queue.`)
           ],
         });
       }
